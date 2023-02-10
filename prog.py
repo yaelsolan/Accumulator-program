@@ -1,6 +1,14 @@
 import argparse
 
-parser = argparse.ArgumentParser(description='Process some integers.')
+parser = argparse.ArgumentParser(
+	prog='PROG',
+	description='''this description
+	was indented weird
+	but that is okay''',
+	epilog='''
+		likewise for this epilog whose whitespace will
+	be cleand up and whose words will be wrapped
+	across a couple lines''')
 parser.add_argument('integers', type=int, nargs='+',
                     help='an integer for the accumulator')
 parser.add_argument('--sum', dest='accumulate', action='store_const',
