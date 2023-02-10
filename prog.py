@@ -2,18 +2,9 @@ import argparse, textwrap
 
 parser = argparse.ArgumentParser(
     prog='PROG',
-    formatter_class=argparse.RawDescriptionHelpFormatter,
-    description=textwrap.dedent('''\
-        Please do not mess up this text!
-        --------------------------------
-            I have indented it
-            exactly the way
-            I want it
-        '''),
-	epilog='''
-	likewise for this epilog whose whitespace will
-	be cleand up and whose words will be wrapped
-	across a couple lines''')
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument('--fo', type=int, default=42, help='FOO!')
+parser.add_argument('bar', nargs='*', default=[1, 2, 3], help='BAR!')
 parser.add_argument('integers', type=int, nargs='+',
                     help='an integer for the accumulator')
 parser.add_argument('--sum', dest='accumulate', action='store_const',
