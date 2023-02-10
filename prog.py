@@ -5,6 +5,14 @@ with open ('args.txt', 'w') as fp:
 parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 parser.add_argument('-f')
 parser.parse_args(['-f','foo', '@args.txt'])
+
+parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS)
+parser.add_argument('--foo')
+parser.add_argument('bar', nargs='?')
+parser.parse_args(['--foo', '1', 'BAR'])
+
+parser.parse_args([])
+
 parser.add_argument('integers', type=int, nargs='+',
                     help='an integer for the accumulator')
 parser.add_argument('--sum', dest='accumulate', action='store_const',
