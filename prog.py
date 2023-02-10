@@ -2,9 +2,9 @@ import argparse, textwrap
 
 parser = argparse.ArgumentParser(
     prog='PROG',
-    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-parser.add_argument('--fo', type=int, default=42, help='FOO!')
-parser.add_argument('bar', nargs='*', default=[1, 2, 3], help='BAR!')
+    formatter_class=argparse.MetavarTypeHelpFormatter)
+parser.add_argument('--fo', type=int)
+parser.add_argument('bar', type=float)
 parser.add_argument('integers', type=int, nargs='+',
                     help='an integer for the accumulator')
 parser.add_argument('--sum', dest='accumulate', action='store_const',
