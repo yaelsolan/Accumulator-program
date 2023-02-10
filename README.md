@@ -1,2 +1,3 @@
 # Accumulator-program
-Python program that takes a list of integers and produces either the sum or the max
+
+#This program is writtem in Python and it shows parser for comnand-line options and arguments. 
