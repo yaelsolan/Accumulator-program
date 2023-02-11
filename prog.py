@@ -1,16 +1,16 @@
-import argparse, textwrap
+import argparse
 
-parser = argparse.ArgumentParser(prog='PROG', allow_abbrev=False)
-parser.add_argument('--foobar', action='store_true')
-parser.add_argument('--foonley', action='store_false')
-parser.parse_args(['--foon'])
+parser = argparse.ArgumentParser(prog='PROG')
+parser.add_argument('-f', '--foo', help='old foo help')
+parser.add_argument('--foo', help='new foo help')
 
 parser.add_argument('integers', type=int, nargs='+',
+                   
                     help='an integer for the accumulator')
 parser.add_argument('--sum', dest='accumulate', action='store_const',
                     const=sum, default=max,
+                  
                     help='sum the integers (default: find the max)')
-
 args = parser.parse_args()
 print(args.accumulate(args.integers))
 
